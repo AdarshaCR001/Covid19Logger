@@ -1,0 +1,199 @@
+{
+    "success": true,
+    "data": {
+    "summary": {
+    "total": 0,
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0,
+    "confirmedButLocationUnidentified": 0
+    },
+    "regional": [
+    {
+    "loc": "Andhra Pradesh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Bihar",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Chhattisgarh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Delhi",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Goa",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Gujarat",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 1,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Haryana",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 140,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Himachal Pradesh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Karnataka",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Kerala",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Madhya Pradesh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Maharashtra",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Manipur",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Mizoram",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Odisha",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Puducherry",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Punjab",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Rajasthan",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Tamil Nadu",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Telengana",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Chandigarh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Jammu and Kashmir",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Ladakh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Uttar Pradesh",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 1,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "Uttarakhand",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    },
+    {
+    "loc": "West Bengal",
+    "confirmedCasesIndian": 0,
+    "confirmedCasesForeign": 0,
+    "discharged": 0,
+    "deaths": 0
+    }
+    ]
+    },
+    "lastRefreshed": "0",
+    "lastOriginUpdate": "0"
+    }

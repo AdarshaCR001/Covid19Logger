@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import App from '../App';
-import Home from '../Pages/Home';
+import Home from '../Pages/User';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const UserContext = React.createContext();
 
@@ -37,7 +38,6 @@ function Facebook() {
 
     return (
         <div>
-
             <h1 className="header">Covid-19</h1>
             {loginDetails.isLoggedin ? <div>
                 <UserContext.Provider value={loginDetails.name}>
@@ -63,4 +63,4 @@ function Facebook() {
     )
 }
 
-export default Facebook;
+
