@@ -1,9 +1,6 @@
-import React, { useState, useContext } from 'react'
-import FacebookLogin from 'react-facebook-login'
+import React, { useContext } from 'react'
 import { UserContext } from '../App'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav } from 'react-bootstrap';
-import { Router, Link } from "@reach/router"
 
 function User() {
     const user = useContext(UserContext)

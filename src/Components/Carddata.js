@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Card, Col } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 function Carddata({name,value, headcolor, bodycolor}) {
     return (
