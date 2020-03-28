@@ -12,12 +12,12 @@ function IndianCount() {
     }
     return (
         <div><form onSubmit={clickHandle}>
-            <label>enter your pin</label>
-            <input type="text" onChange={e=>setPin(e.target.value)}></input>
+            
+            <input type="text" placeholder="Enter your Pin" onChange={e=>setPin(e.target.value)}></input>
             <input type="submit" value="submit"></input>
             <br/>
-            <label>number of people quarantined in your area is<t></t></label>
-            {total}
+            
+            <p>{total}</p>
             </form>
         </div>
     )

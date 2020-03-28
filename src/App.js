@@ -1,14 +1,15 @@
 
 import React, { useState, useEffect } from 'react'
+import LoginButton from './Images/Facebooklogin.png'
 import FacebookLogin from 'react-facebook-login'
 import './App.css';
 import User from './Pages/User'
 import About from './Pages/About'
 import GlobalStatus from './Pages/GlobalStatus'
-import Facebook from './Components/Facebook';
 import { Router, Link } from "@reach/router"
 import { Navbar, Nav, Container } from 'react-bootstrap';
 export const UserContext = React.createContext();
+
 
 function App() {
     const initialDetails =
@@ -39,28 +40,34 @@ function App() {
     let componentClicked = () => console.log("hello")
     let Logout = () => {
         setLoginDetails(initialDetails)
+        window.FB.logout()
 
     }
     return (
         <div>
-            <Navbar className="justify-content-md-center" bg="dark">
+            <Navbar className="justify-content-between" bg="dark" expand="lg">
+                
                 <Link to="about">About</Link>
-                <Link to="">Global Status</Link>
+                <Link to="/">Global Status</Link>
                 {loginDetails.isLoggedin ?
-                    <Link to=""><button onClick={Logout}>Logout</button></Link> :
+                    [<Link to="user">Profile</Link>,
+                <Link to="/"><button onClick={Logout}>Logout</button></Link>] :
                     <Link to="user"><FacebookLogin
                         appId="844646109387146"
                         autoLoad={true}
                         fields="name,email,picture"
                         onClick={componentClicked}
-                        callback={responseFacebook}></FacebookLogin></Link>}
-
+                        callback={responseFacebook}
+                        cssClass="my-facebook-button-class"
+                        icon="fa-facebook">
+                        </FacebookLogin></Link>}
+                        
             </Navbar>
             
                 <UserContext.Provider value={loginDetails.name}>
                     <Container>
                         <Router>
-                            {/* <Facebook path="/"/> */}
+                           
                             <User path="/user" />
                             <About path="/about" />
                             <GlobalStatus path="/" />
