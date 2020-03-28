@@ -7,8 +7,9 @@ import User from './Pages/User'
 import About from './Pages/About'
 import GlobalStatus from './Pages/GlobalStatus'
 import Facebook from './Components/Facebook';
-import { Router, Link } from "@reach/router"
+import { Router, Link, Redirect } from "@reach/router"
 import { Navbar, Nav } from 'react-bootstrap';
+export const UserContext = React.createContext();
 
 function App() {
     const initialDetails =
@@ -19,20 +20,23 @@ function App() {
         email: '',
         picture: ''
     }
- 
+
     const [loginDetails, setLoginDetails] = useState(initialDetails);
 
     let responseFacebook = response => {
-
-        setLoginDetails({
-            isLoggedin: true,
-            userID: response.userID,
-            name: response.name,
-            email: response.email,
-            picture: response.picture.data.url
-        })
-
+        if (response.status == "unknown") {
+            console.log(response.status)
+        } else {
+            setLoginDetails({
+                isLoggedin: true,
+                userID: response.userID,
+                name: response.name,
+                email: response.email,
+                picture: response.picture.data.url
+            })
+        }
     }
+
     let componentClicked = () => console.log("hello")
     let Logout = () => {
         setLoginDetails(initialDetails)
@@ -40,43 +44,35 @@ function App() {
     }
     return (
         <div>
-            {/* <nav className="navbar">
+            <Navbar className="justify-content-md-center" bg="dark">
                 <Link to="about">About</Link>
                 <Link to="">Global Status</Link>
                 {loginDetails.isLoggedin ?
                     <Link to=""><button onClick={Logout}>Logout</button></Link> :
-                    <Link to="home"><FacebookLogin
+                    <Link to="user"><FacebookLogin
                         appId="844646109387146"
                         autoLoad={true}
                         fields="name,email,picture"
                         onClick={componentClicked}
                         callback={responseFacebook}></FacebookLogin></Link>}
-            </nav> */}
 
-            {/* //navbar not working as expected with react bootstrap */}
-            <Navbar className="justify-content-md-center" bg="dark">
-                <Link to="about">About</Link>
-                <Link to="">Global Status</Link>
-                {loginDetails.isLoggedin?
-                <Link to=""><button onClick={Logout}>Logout</button></Link>:
-                <Link to="user"><FacebookLogin
-                    appId="844646109387146"
-                    autoLoad={true}
-                    fields="name,email,picture"
-                    onClick={componentClicked}
-  callback={responseFacebook}></FacebookLogin></Link>}
-           
             </Navbar>
+            <UserContext.Provider value={loginDetails.name}>
 
 
-            <Router>
-                {/* <Facebook path="/"/> */}
-                <User path="/user" />
-                <About path="/about" />
-                <GlobalStatus path="/" />
 
 
-            </Router>
+
+                <Router>
+                    {/* <Facebook path="/"/> */}
+                    <User path="/user" />
+                    <About path="/about" />
+                    <GlobalStatus path="/" />
+                    {/* <Redirect from="/" to="/" /> */}
+
+
+                </Router>
+            </UserContext.Provider>
         </div>
     );
 }
