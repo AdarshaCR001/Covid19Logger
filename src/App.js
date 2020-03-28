@@ -8,6 +8,7 @@ import GlobalStatus from './Pages/GlobalStatus'
 import Facebook from './Components/Facebook';
 import { Router, Link } from "@reach/router"
 import { Navbar, Nav, Container } from 'react-bootstrap';
+export const UserContext = React.createContext();
 
 function App() {
     const initialDetails =
@@ -55,26 +56,21 @@ function App() {
                         callback={responseFacebook}></FacebookLogin></Link>}
 
             </Navbar>
-            <UserContext.Provider value={loginDetails.name}>
-
-
-
-
-
-      <UserContext.Provider value={loginDetails.name}>
+            
+                <UserContext.Provider value={loginDetails.name}>
                     <Container>
-            <Router>
-                {/* <Facebook path="/"/> */}
-                <User path="/user" />
-                <About path="/about" />
-                <GlobalStatus path="/" />
+                        <Router>
+                            {/* <Facebook path="/"/> */}
+                            <User path="/user" />
+                            <About path="/about" />
+                            <GlobalStatus path="/" />
 
 
-            </Router>
-            </Container>
-       </UserContext.Provider>
+                        </Router>
+                    </Container>
+                </UserContext.Provider>
 
-        </div>
+    </div>
     );
 }
 
