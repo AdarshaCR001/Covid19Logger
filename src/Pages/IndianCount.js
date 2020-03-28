@@ -7,7 +7,7 @@ function IndianCount() {
     const [total,setTotal]=useState(0);
     const clickHandle=(evt)=>{
         evt.preventDefault();
-        setTotal(count.reduce((n,x)=>n+(x==pin),0))
+        setTotal(count.reduce((n,x)=>n+(x===pin),0))
     //   console.log(count.filter(x=>x==pin))
     }
     return (
