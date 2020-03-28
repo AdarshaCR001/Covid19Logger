@@ -19,17 +19,15 @@ function App() {
         userID: '',
         name: '',
         email: '',
-        picture: '',
-        display: 'block'
+        picture: ''
     }
 
 
     const [loginDetails, setLoginDetails] = useState(JSON.parse(localStorage.getItem("loginDetails")));
 
     useEffect(() => {
-        localStorage.setItem("loginDetails", JSON.stringify(loginDetails));
-        console.log(loginDetails)
-        console.log(localStorage.getItem("loginDetails"))
+        if(loginDetails!==null && loginDetails.isLoggedin!==false)
+            localStorage.setItem("loginDetails", JSON.stringify(loginDetails));
     }, [loginDetails])
 
     let responseFacebook = response => {
@@ -42,25 +40,19 @@ function App() {
                 userID: response.userID,
                 name: response.name,
                 email: response.email,
-                picture: response.picture.data.url,
-                display: "none"
+                picture: response.picture.data.url
             })
+
 
         }
     }
-    const prop = {
-        name: loginDetails.name,
-        email: loginDetails.email,
-        picture: loginDetails.picture
-
-    }
-
 
     let Logout = () => {
         setLoginDetails(initialDetails)
-        console.log(Window.FB)
-        window.FB.logout()
+        console.log("loginDetails 1")
         localStorage.removeItem("loginDetails");
+        console.log("loginDetails 2")
+        window.FB.logout()
 
     }
     return (
@@ -69,11 +61,11 @@ function App() {
 
                 <Link to="about">About</Link>
                 <Link to="/">Global Status</Link>
-                {(loginDetails !== null & loginDetails.isLoggedin) ?
+                {(loginDetails !== null && loginDetails.isLoggedin) ?
                     [<Link to="user">Profile</Link>,
                     <Link to="/"><button onClick={Logout}>Logout</button></Link>,] :
                     ""}
-                <Link style={{ display: loginDetails.display }} to="user"><FacebookLogin
+                <Link style={{ display: (loginDetails!==null && loginDetails.isLoggedin !== false) ? "none": "block"}} to="user"><FacebookLogin
                     appId="844646109387146"
                     autoLoad={false}
                     fields="name,email,picture"
@@ -85,7 +77,7 @@ function App() {
             </Navbar>
 
 
-            <UserContext.Provider value={prop}>
+            <UserContext.Provider value={loginDetails}>
 
 
                 <Container>
