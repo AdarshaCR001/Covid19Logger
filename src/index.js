@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import './App.css';
 import * as serviceWorker from './serviceWorker';
-import Facebook from './Components/Facebook.js'
+
 
 ReactDOM.render(
   <React.StrictMode>

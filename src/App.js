@@ -12,6 +12,7 @@ export const UserContext = React.createContext();
 
 
 function App() {
+
     const initialDetails =
     {
         isLoggedin: false,
@@ -36,6 +37,12 @@ function App() {
             })
         }
     }
+    const prop = {
+        name: loginDetails.name,
+        email: loginDetails.email,
+        picture: loginDetails.picture
+
+    }
 
     let componentClicked = () => console.log("hello")
     let Logout = () => {
@@ -46,12 +53,12 @@ function App() {
     return (
         <div>
             <Navbar className="justify-content-between" bg="dark" expand="lg">
-                
+
                 <Link to="about">About</Link>
                 <Link to="/">Global Status</Link>
                 {loginDetails.isLoggedin ?
                     [<Link to="user">Profile</Link>,
-                <Link to="/"><button onClick={Logout}>Logout</button></Link>] :
+                    <Link to="/"><button onClick={Logout}>Logout</button></Link>] :
                     <Link to="user"><FacebookLogin
                         appId="844646109387146"
                         autoLoad={true}
@@ -60,24 +67,24 @@ function App() {
                         callback={responseFacebook}
                         cssClass="my-facebook-button-class"
                         icon="fa-facebook">
-                        </FacebookLogin></Link>}
-                        
+                    </FacebookLogin></Link>}
+
             </Navbar>
-            
-                <UserContext.Provider value={loginDetails.name}>
-                    <Container>
-                        <Router>
-                           
-                            <User path="/user" />
-                            <About path="/about" />
-                            <GlobalStatus path="/" />
+
+            <UserContext.Provider value={prop}>
+                <Container>
+                    <Router>
+
+                        <User path="/user" />
+                        <About path="/about" />
+                        <GlobalStatus path="/" />
 
 
-                        </Router>
-                    </Container>
-                </UserContext.Provider>
+                    </Router>
+                </Container>
+            </UserContext.Provider>
 
-    </div>
+        </div>
     );
 }
 
