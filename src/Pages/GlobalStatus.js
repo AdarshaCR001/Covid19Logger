@@ -4,6 +4,7 @@ import info from '../info.json'
 import Regionaltable from '../Components/Regionaltable';
 import Card from '../Components/Carddata';
 import { Row, Col } from 'react-bootstrap';
+import IndianCount from './IndianCount'
 
 
 function GlobalStatus() {
@@ -30,6 +31,11 @@ function GlobalStatus() {
                 <Col><Card name="Confirmed(Forign)" value={summary.confirmedCasesForeign} headcolor={"#02567a"} bodycolor={"#138dc2"} /></Col>
                 <Col><Card name="Recovered" value={summary.discharged} headcolor={"#0e9104"} bodycolor={"#25ba1a"} /></Col>
                 <Col><Card name="Deaths" value={summary.deaths} headcolor={"#9c030b"} bodycolor={"#cc101a"} /></Col>
+            </Row>
+            <br/>
+            <Row>
+            <Col><Card name="Quarantined near you(Karnataka only)" value={<IndianCount/>}headcolor={"#9c030b"} bodycolor={"#cc101a"}/></Col>
+            
             </Row>
             <br/>
             <Regionaltable regional={regional} />
