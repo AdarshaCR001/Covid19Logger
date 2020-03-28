@@ -8,7 +8,7 @@ import About from './Pages/About'
 import GlobalStatus from './Pages/GlobalStatus'
 import Facebook from './Components/Facebook';
 import { Router, Link } from "@reach/router"
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 function App() {
     const initialDetails =
@@ -19,7 +19,7 @@ function App() {
         email: '',
         picture: ''
     }
- 
+
     const [loginDetails, setLoginDetails] = useState(initialDetails);
 
     let responseFacebook = response => {
@@ -40,35 +40,21 @@ function App() {
     }
     return (
         <div>
-            {/* <nav className="navbar">
+            <Navbar className="justify-content-md-center" bg="dark">
                 <Link to="about">About</Link>
                 <Link to="">Global Status</Link>
                 {loginDetails.isLoggedin ?
                     <Link to=""><button onClick={Logout}>Logout</button></Link> :
-                    <Link to="home"><FacebookLogin
+                    <Link to="user"><FacebookLogin
                         appId="844646109387146"
                         autoLoad={true}
                         fields="name,email,picture"
                         onClick={componentClicked}
                         callback={responseFacebook}></FacebookLogin></Link>}
-            </nav> */}
 
-            {/* //navbar not working as expected with react bootstrap */}
-            <Navbar className="justify-content-md-center" bg="dark">
-                <Link to="about">About</Link>
-                <Link to="">Global Status</Link>
-                {loginDetails.isLoggedin?
-                <Link to=""><button onClick={Logout}>Logout</button></Link>:
-                <Link to="user"><FacebookLogin
-                    appId="844646109387146"
-                    autoLoad={true}
-                    fields="name,email,picture"
-                    onClick={componentClicked}
-  callback={responseFacebook}></FacebookLogin></Link>}
-           
             </Navbar>
 
-
+                    <Container>
             <Router>
                 {/* <Facebook path="/"/> */}
                 <User path="/user" />
@@ -77,6 +63,7 @@ function App() {
 
 
             </Router>
+            </Container>
         </div>
     );
 }
