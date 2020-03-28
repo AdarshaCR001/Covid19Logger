@@ -17,7 +17,7 @@ function Regionaltable({ regional }) {
             <tbody>
 
                 {regional.map((state, index) =>
-                    <tr>
+                    <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{state.loc}</td>
                         <td style={{color:"orange"}}>{state.confirmedCasesIndian}</td>
