@@ -19,28 +19,33 @@ function App() {
         userID: '',
         name: '',
         email: '',
-        picture: ''
+        picture: '',
+        display: 'block'
     }
 
-    const [loginDetails, setLoginDetails] = useState(initialDetails);
+
+    const [loginDetails, setLoginDetails] = useState(JSON.parse(localStorage.getItem("loginDetails")));
 
     useEffect(() => {
-        var loginDetails = localStorage.getItem("loginDetails");
-        if(loginDetails!==null)
-            setLoginDetails(loginDetails);
-    })
+        localStorage.setItem("loginDetails", JSON.stringify(loginDetails));
+        console.log(loginDetails)
+        console.log(localStorage.getItem("loginDetails"))
+    }, [loginDetails])
 
     let responseFacebook = response => {
+        console.log(response)
         if (response.status === "unknown" || response.status === "not_authorized") {
-            console.log(response.status)
+            console.log("error " + response.status)
         } else {
             setLoginDetails({
                 isLoggedin: true,
                 userID: response.userID,
                 name: response.name,
                 email: response.email,
+                picture: response.picture.data.url,
+                display: "none"
             })
-            localStorage.setItem("loginDetails", initialDetails);
+
         }
     }
     const prop = {
@@ -50,11 +55,12 @@ function App() {
 
     }
 
-    let componentClicked = () => console.log("hello")
+
     let Logout = () => {
         setLoginDetails(initialDetails)
-        localStorage.removeItem("loginDetails");
+        console.log(Window.FB)
         window.FB.logout()
+        localStorage.removeItem("loginDetails");
 
     }
     return (
@@ -63,19 +69,19 @@ function App() {
 
                 <Link to="about">About</Link>
                 <Link to="/">Global Status</Link>
-                { loginDetails.isLoggedin ?
+                {(loginDetails !== null & loginDetails.isLoggedin) ?
                     [<Link to="user">Profile</Link>,
-                    <Link to="/"><button onClick={Logout}>Logout</button></Link>] :
-                    <Link to="user"><FacebookLogin
-                        appId="844646109387146"
-                        autoLoad={false}
-                        fields="name,email,picture"
-                        onClick={componentClicked}
-                        callback={responseFacebook}
-                        cssClass="my-facebook-button-class"
-                        icon="fa-facebook">
-                    </FacebookLogin></Link>}
+                    <Link to="/"><button onClick={Logout}>Logout</button></Link>,] :
+                    ""}
+                <Link style={{ display: loginDetails.display }} to="user"><FacebookLogin
+                    appId="844646109387146"
+                    autoLoad={false}
+                    fields="name,email,picture"
 
+                    callback={responseFacebook}
+                    cssClass="my-facebook-button-class"
+                    icon="fa-facebook">
+                </FacebookLogin></Link>
             </Navbar>
 
 
