@@ -1,15 +1,13 @@
 
 import React, { useState, useEffect } from 'react'
 import FacebookLogin from 'react-facebook-login'
-
 import './App.css';
 import User from './Pages/User'
 import About from './Pages/About'
 import GlobalStatus from './Pages/GlobalStatus'
 import Facebook from './Components/Facebook';
-import { Router, Link, Redirect } from "@reach/router"
-import { Navbar, Nav } from 'react-bootstrap';
-export const UserContext = React.createContext();
+import { Router, Link } from "@reach/router"
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 function App() {
     const initialDetails =
@@ -63,16 +61,19 @@ function App() {
 
 
 
-                <Router>
-                    {/* <Facebook path="/"/> */}
-                    <User path="/user" />
-                    <About path="/about" />
-                    <GlobalStatus path="/" />
-                    {/* <Redirect from="/" to="/" /> */}
+      <UserContext.Provider value={loginDetails.name}>
+                    <Container>
+            <Router>
+                {/* <Facebook path="/"/> */}
+                <User path="/user" />
+                <About path="/about" />
+                <GlobalStatus path="/" />
 
 
-                </Router>
-            </UserContext.Provider>
+            </Router>
+            </Container>
+       </UserContext.Provider>
+
         </div>
     );
 }
