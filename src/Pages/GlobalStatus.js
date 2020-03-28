@@ -34,7 +34,7 @@ function GlobalStatus() {
             </Row>
             <br/>
             <Row>
-            <Col><Card name="Quarantined near you(Karnataka only)" value={<IndianCount/>}headcolor={"#9c030b"} bodycolor={"#cc101a"}/></Col>
+            <Col><Card name="Quarantined near you(Karnataka only)" value={<IndianCount/>}headcolor={"#708090"} bodycolor={"#2F4F4F"}/></Col>
             
             </Row>
             <br/>

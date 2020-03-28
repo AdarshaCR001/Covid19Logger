@@ -11,7 +11,9 @@ export const UserContext = React.createContext();
 
 
 function App() {
-    var initialDetails =
+
+
+    const initialDetails =
     {
         isLoggedin: false,
         userID: '',
@@ -40,6 +42,12 @@ function App() {
             })
             localStorage.setItem("loginDetails", initialDetails);
         }
+    }
+    const prop = {
+        name: loginDetails.name,
+        email: loginDetails.email,
+        picture: loginDetails.picture
+
     }
 
     let componentClicked = () => console.log("hello")
@@ -70,7 +78,10 @@ function App() {
 
             </Navbar>
 
-            <UserContext.Provider value={loginDetails.name}>
+
+            <UserContext.Provider value={prop}>
+
+
                 <Container>
                     <Router>
 
