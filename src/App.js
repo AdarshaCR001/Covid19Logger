@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
 import FacebookLogin from 'react-facebook-login'
-
 import './App.css';
 import User from './Pages/User'
 import About from './Pages/About'
@@ -9,6 +8,7 @@ import GlobalStatus from './Pages/GlobalStatus'
 import Facebook from './Components/Facebook';
 import { Router, Link } from "@reach/router"
 import { Navbar, Nav, Container } from 'react-bootstrap';
+export const UserContext = React.createContext();
 
 function App() {
     const initialDetails =
@@ -23,16 +23,19 @@ function App() {
     const [loginDetails, setLoginDetails] = useState(initialDetails);
 
     let responseFacebook = response => {
-
-        setLoginDetails({
-            isLoggedin: true,
-            userID: response.userID,
-            name: response.name,
-            email: response.email,
-            picture: response.picture.data.url
-        })
-
+        if (response.status == "unknown") {
+            console.log(response.status)
+        } else {
+            setLoginDetails({
+                isLoggedin: true,
+                userID: response.userID,
+                name: response.name,
+                email: response.email,
+                picture: response.picture.data.url
+            })
+        }
     }
+
     let componentClicked = () => console.log("hello")
     let Logout = () => {
         setLoginDetails(initialDetails)
@@ -53,18 +56,21 @@ function App() {
                         callback={responseFacebook}></FacebookLogin></Link>}
 
             </Navbar>
-
+            
+                <UserContext.Provider value={loginDetails.name}>
                     <Container>
-            <Router>
-                {/* <Facebook path="/"/> */}
-                <User path="/user" />
-                <About path="/about" />
-                <GlobalStatus path="/" />
+                        <Router>
+                            {/* <Facebook path="/"/> */}
+                            <User path="/user" />
+                            <About path="/about" />
+                            <GlobalStatus path="/" />
 
 
-            </Router>
-            </Container>
-        </div>
+                        </Router>
+                    </Container>
+                </UserContext.Provider>
+
+    </div>
     );
 }
 
