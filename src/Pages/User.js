@@ -25,6 +25,22 @@ function User() {
         console.log(event.target)
 
     }
+
+    const ini = [
+        {value:0,  display_name: "Dry Cough" ,name:"Dry_Cough"},
+        {value: 0, display_name:"Fever", name:"Fever"},
+        {value: 0,display_name:"Runny Nose", name:"Runny_Nose"},
+        {value: 0,display_name:"Breathing Diffculty", name:"Breathing_Diffculty"},
+        {value: 0,display_name:"Tiredness" ,name:"Tiredness"},
+        {value: 0,display_name:"Sore Throat",name:"Sore_throat"},
+        {value: 0,display_name:"Body Ache",name:"Body_ache"}
+
+    ]
+
+    const [symtoms,setSymtoms]=useState({});
+    const handleSymtom=(name,value)=>{
+        setSymtoms({...symtoms,[name]:value})
+    }
     return (
         <div>
             {context ?
@@ -33,32 +49,11 @@ function User() {
                     <img src={context.picture} alt="img"></img>
                     <p>name : {context.name}</p>
                     <p>Email : {context.email}</p>
-                    
-                    <FormOption/>
-                    {/* <Form onSubmit={formSubmit}>
-                        {form}
-                        {form}
-                        {form}
-                        <button type="submit">Submit</button>
-                    </Form> */}
-                    {/* <form onSubmit={formSubmit}>
-                        <label>Symptom 1 : </label>
-                        {Symptom}
-                        <br />
-                        <label>Symptom 2 : </label>
-                        {Symptom}
-                        <br />
-                        <label>Symptom 3 : </label>
-                        {Symptom}
-                        <br />
-                        <label>Under Medication : </label>
-                        <input type="text" name="meds" />
-                        <br/>
-                        <input type="submit" value="submit"/>
-                    </form></> */}
+                    {ini.map((x)=><FormOption obj={x} action={handleSymtom}/>)}
                 </>
                 :
                 <p>please login</p>
+                
             }
         </div>
 
