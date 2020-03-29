@@ -49,9 +49,7 @@ function App() {
 
     let Logout = () => {
         setLoginDetails(initialDetails)
-        console.log("loginDetails 1")
         localStorage.removeItem("loginDetails");
-        console.log("loginDetails 2")
         window.FB.logout()
 
     }
