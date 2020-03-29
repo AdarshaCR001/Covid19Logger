@@ -28,13 +28,13 @@ function GlobalStatus() {
             <Row >
                 <Col><Card name="Total" value={summary.total} headcolor={"#052282"} bodycolor={"#193fbd"} /></Col>
                 <Col><Card name="Confirmed(Indian)" value={summary.confirmedCasesIndian} headcolor={"#a85705"} bodycolor={"#e67b10"} /></Col>
-                <Col><Card name="Confirmed(Forign)" value={summary.confirmedCasesForeign} headcolor={"#02567a"} bodycolor={"#138dc2"} /></Col>
+                <Col><Card name="Confirmed(Foreign)" value={summary.confirmedCasesForeign} headcolor={"#02567a"} bodycolor={"#138dc2"} /></Col>
                 <Col><Card name="Recovered" value={summary.discharged} headcolor={"#0e9104"} bodycolor={"#25ba1a"} /></Col>
                 <Col><Card name="Deaths" value={summary.deaths} headcolor={"#9c030b"} bodycolor={"#cc101a"} /></Col>
             </Row>
             <br/>
             <Row>
-            <Col><Card name="Quarantined near you(Karnataka only)" value={<IndianCount/>}headcolor={"#708090"} bodycolor={"#2F4F4F"}/></Col>
+            <Col><Card name="Quarantined near you(Karnataka only)" value={<IndianCount/>} headcolor={"#708090"} bodycolor={"#2F4F4F"}/></Col>
             
             </Row>
             <br/>
