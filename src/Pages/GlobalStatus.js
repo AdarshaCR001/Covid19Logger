@@ -3,8 +3,8 @@ import axios from 'axios';
 import info from '../info.json'
 import Regionaltable from '../Components/Regionaltable';
 import Card from '../Components/Carddata';
-import { Row, Col } from 'react-bootstrap';
-import IndianCount from './IndianCount'
+import { Row, Col,Spinner } from 'react-bootstrap';
+
 
 
 function GlobalStatus() {
@@ -24,6 +24,7 @@ function GlobalStatus() {
 
     return (
         <div>
+            
             <br/>
             <Row >
                 <Col><Card name="Total" value={summary.total} headcolor={"#052282"} bodycolor={"#193fbd"} /></Col>
@@ -33,12 +34,12 @@ function GlobalStatus() {
                 <Col><Card name="Deaths" value={summary.deaths} headcolor={"#9c030b"} bodycolor={"#cc101a"} /></Col>
             </Row>
             <br/>
-            <Row>
-            <Col><Card name="Quarantined near you(Karnataka only)" value={<IndianCount/>} headcolor={"#708090"} bodycolor={"#2F4F4F"}/></Col>
-            
-            </Row>
+           
             <br/>
             <Regionaltable regional={regional} />
+            
+            
+              
         </div>
     )
 }

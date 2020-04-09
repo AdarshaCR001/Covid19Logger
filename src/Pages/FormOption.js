@@ -20,7 +20,9 @@ function FormOption({ obj, action }) {
                         <Form.Control type="range" custom name={obj.name} value={options[obj.name]} onChange={handleChange} />
 
                     </Form.Group></Col>
+                    <Col>{options[obj.name]}</Col>
                 </Row>
+                
 
 
             </Form>
