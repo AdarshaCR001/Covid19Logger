@@ -7,6 +7,7 @@ import About from './Pages/About'
 import GlobalStatus from './Pages/GlobalStatus'
 import { Router, Link } from "@reach/router"
 import { Navbar, Container } from 'react-bootstrap';
+import axios from 'axios';
 export const UserContext = React.createContext();
 
 
@@ -30,8 +31,11 @@ function App() {
             localStorage.setItem("loginDetails", JSON.stringify(loginDetails));
     }, [loginDetails])
 
+
+
     let responseFacebook = response => {
         console.log(response)
+
         if (response.status === "unknown" || response.status === "not_authorized") {
             console.log("error " + response.status)
         } else {
@@ -44,8 +48,10 @@ function App() {
             })
 
 
+
         }
     }
+    
 
     let Logout = () => {
         setLoginDetails(initialDetails)
@@ -58,7 +64,7 @@ function App() {
             <Navbar className="justify-content-between" bg="dark" expand="lg">
 
                 <Link to="about">About</Link>
-                <Link to="/">Global Status</Link>
+                <Link to="/">All India Status</Link>
                 {(loginDetails !== null && loginDetails.isLoggedin) ?
                     [<Link to="user">Profile</Link>,
                     <Link to="/"><button onClick={Logout}>Logout</button></Link>,] :
@@ -67,7 +73,7 @@ function App() {
                     appId="844646109387146"
                     autoLoad={false}
                     fields="name,email,picture"
-
+                    // onClick={GetHistory}
                     callback={responseFacebook}
                     cssClass="my-facebook-button-class"
                     icon="fa-facebook">
