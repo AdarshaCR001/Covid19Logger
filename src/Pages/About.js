@@ -1,9 +1,18 @@
-import React from 'react'
-import { Accordion,Card,Row } from 'react-bootstrap';
+import React,{useContext,useEffect} from 'react'
+import { Accordion,Card,Row,Col } from 'react-bootstrap';
 import Accordiondata from '../Components/Accordiondata';
-
+import { UserContext } from '../App'
+import axios from 'axios';
 
 function About() {
+  
+  const context = useContext(UserContext)
+  console.log(context)
+
+
+
+
+
 
   var QAS = [
     {
@@ -23,22 +32,24 @@ function About() {
     <br/>
     <br/>
     <br/>
-<Card  border="primary" bg="info">
+    
+<Card  border="info" bg="light" style={{ borderRadius: 25, borderWidth: 2}}>
 <Card.Title>Sources and Important Links</Card.Title>    
+<Row className="justify-content-md-center">
 
-<Row>
-
-  <Card  border="success" bodycolor={"#2F4F4F"}>
+<Col md="auto">
+  <Card  border="warning" style={{ borderRadius: 25, borderWidth: 2}}>
 
     <Card.Body bodycolor={"#2F4F4F"}>
       <Card.Title><a href="https://www.who.int/" target="_blank" style={{ color: '#800020' }}>WHO Website</a></Card.Title>
       <Card.Text>
-      <font face="verdana" color="green"> </font>
       </Card.Text>
       
     </Card.Body>
     </Card>
-  <Card border="success">
+    </Col>
+    <Col md="auto">
+  <Card border="primary" style={{ borderRadius: 25, borderWidth: 2}}>
      <Card.Body>
       <Card.Title><a href="https://www.mygov.in/covid-19/?cbps=1" target="_blank" style={{ color: '#800020' }} >Indian Government</a></Card.Title>
       <Card.Text>
@@ -47,7 +58,9 @@ function About() {
       </Card.Text>
     </Card.Body>
   </Card>
-  <Card border="success">
+  </Col>
+  <Col md="auto">
+  <Card border="success" style={{ borderRadius: 25, borderWidth: 2}}>
     <Card.Body>
       <Card.Title><a href="https://github.com/amodm/api-covid19-in" target="_blank" style={{ color: '#800020' }}>GitHub Repo</a></Card.Title>
       <Card.Text>
@@ -55,18 +68,20 @@ function About() {
       </Card.Text>
     </Card.Body>
   </Card>
+  </Col>
   </Row>
-</Card>
+  </Card>
+
 <br/>
 <br/>
 <br/>
 
-<Card border="primary" bg="info">
+<Card border="info" bg="light" style={{ borderRadius: 25, borderWidth: 2}}>
   <Card.Body >
   <Card.Title>FAQ</Card.Title>
     <Card.Text>
     <Accordion defaultActiveKey="0">
-        {QAS.map((QA, index) => <Card style={{ width: '100%' }} border="success" key={index}><Accordiondata head={QA.head} body={QA.body} index={index} /></Card>)}
+        {QAS.map((QA, index) => <Card style={{ width: '100%' }} border="secondary" key={index}><Accordiondata head={QA.head} body={QA.body} index={index} /></Card>)}
       </Accordion>
     </Card.Text>
   </Card.Body>

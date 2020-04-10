@@ -42,10 +42,11 @@
   overflow: hidden;
   background-color: #333;
 }
+
 div{
   
   width: auto;
-  align-items: center;
+
   align-content: center;
   text-align: center;
 }

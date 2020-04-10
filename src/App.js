@@ -27,6 +27,7 @@ function App() {
     const [loginDetails, setLoginDetails] = useState(JSON.parse(localStorage.getItem("loginDetails")));
 
     useEffect(() => {
+        console.log("useeff ")
         if(loginDetails!==null && loginDetails.isLoggedin!==false)
             localStorage.setItem("loginDetails", JSON.stringify(loginDetails));
     }, [loginDetails])
@@ -57,6 +58,8 @@ function App() {
         setLoginDetails(initialDetails)
         localStorage.removeItem("loginDetails");
         window.FB.logout()
+        window.location.reload(false);
+        window.location = '/';
 
     }
     return (
@@ -79,7 +82,7 @@ function App() {
                     icon="fa-facebook">
                 </FacebookLogin></Link>
             </Navbar>
-
+            {/* JSON.parse(localStorage.getItem("loginDetails")) */}
 
             <UserContext.Provider value={loginDetails}>
 
