@@ -2,7 +2,7 @@
   "name": "reactsocial",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://paradox7.github.io/Covid19Logger",
+  "homepage":"http://7paradox.github.io/Covid19Logger",
   "dependencies": {
     "@reach/router": "^1.3.3",
     "@testing-library/jest-dom": "^4.2.4",
